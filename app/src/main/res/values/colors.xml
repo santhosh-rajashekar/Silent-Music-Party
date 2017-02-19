@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#42B4E6</color>
+    <color name="primary_dark">#219BFD</color>
+    <color name="primary_darker">#0087CD</color>
+    <color name="accent">#FFFFFF</color>
+
+    <color name="black">#000000</color>
+    <color name="jet">#222222</color>
+    <color name="oil">#333333</color>
+    <color name="monsoon">#777777</color>
+    <color name="jumbo">#888888</color>
+    <color name="aluminum">#999999</color>
+    <color name="base">#AAAAAA</color>
+    <color name="iron">#CCCCCC</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="AppTitleBarTitleTextColor">#ffffff</color>
+    <color name="Anthracite_grey">#333333</color>
+    <color name="Dark_Grey">#626469</color>
+    <color name="Spruce_Green">#009530</color>
+    <color name="SE_Life_Green">#3DCD58</color>
+    <color name="SE_Life_Green_opacity">#803DCD58</color>
+    <color name="SE_Life_Green_more_opacity">#403DCD58</color>
+    <color name="Super_Light_Grey">#E6E6E6</color>
+    <color name="Ultra_Light_Grey_1">#EDEDED</color>
+    <color name="AppWhite">#FFFFFFFF</color>
+    <color name="Medium_Grey">#9FA0A4</color>
+    <color name="Medium_Green">#32AD3C</color>
+    <color name="Dark_Green">#007626</color>
+    <color name="Gradient_Red">#DC0A0A</color>
+    <color name="Gradient_Red_more_opacity">#40DC0A0A</color>
+    <color name="Dark_Sky_Blue">#0087CD</color>
+    <color name="Medium_Blue">#219BFD</color>
+    <color name="Sky_Blue">#42B4E6</color>
+    <color name="Light_Grey">#CBCBCB</color>
+    <color name="overflowMenuBg">#fffcfff6</color>
+
+    <color name="grey_300">#E0E0E0</color>
+    <color name="selected_item_background">#219BFD</color>
+</resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/audiosInfo"
+        android:icon="@drawable/ic_audiotrack_white_24dp"
+        android:title="Audios"
+        app:showAsAction="always"
+        tools:ignore="HardcodedText"/>
+
+    <item
+        android:id="@+id/menuMembersInfo"
+        android:icon="@drawable/ic_group_white_24dp"
+        android:title="Members"
+        app:showAsAction="always"
+        tools:ignore="HardcodedText"/>
+</menu>

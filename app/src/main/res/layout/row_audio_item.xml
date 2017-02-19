@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    android:orientation="vertical"
+    android:paddingTop="5dp">
+
+    <View
+        android:id="@+id/separatorTop"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/AppWhite"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/filePath"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="4"
+            android:gravity="center_vertical"
+            android:maxLines="2"
+            android:minLines="2"
+            android:text="Audio File"
+            android:textDirection="ltr"
+            />
+
+        <ImageView
+            android:id="@+id/fileSelectedView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_check_circle_white_24dp"
+            android:visibility="visible"/>
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/separatorBottom"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/AppWhite"/>
+
+</LinearLayout>
+
