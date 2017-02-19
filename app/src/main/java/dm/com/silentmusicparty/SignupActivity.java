@@ -2,9 +2,12 @@ package dm.com.silentmusicparty;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +16,8 @@ import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+
+import static android.widget.Toast.makeText;
 
 public class SignupActivity extends AppCompatActivity
 {
@@ -90,40 +95,61 @@ public class SignupActivity extends AppCompatActivity
         progressDialog.setMessage("Creating Account...");
         progressDialog.show();
 
-        String name = nameText.getText().toString();
-        String address = addressText.getText().toString();
-        String email = emailText.getText().toString();
-        String mobile = mobileText.getText().toString();
-        String password = passwordText.getText().toString();
-        String reEnterPassword = reEnterPasswordText.getText().toString();
+        final String name = nameText.getText().toString();
+        final String address = addressText.getText().toString();
+        final String email = emailText.getText().toString();
+        final String phone = mobileText.getText().toString();
+        final String password = passwordText.getText().toString();
+        final String reEnterPassword = reEnterPasswordText.getText().toString();
+        final Bitmap photo = BitmapFactory.decodeResource(getResources(), R.drawable.login);
 
-        // TODO: Implement your own signup logic here.
+        final DBHelper dbHelper = DBHelper.getInstance(this);
 
-        new android.os.Handler().postDelayed(
-                new Runnable()
+        Thread signupThread = new Thread(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                final boolean isSignupOkay = dbHelper.signUpNewMember(name, phone, email, password, address, photo);
+
+                runOnUiThread(new Runnable()
                 {
+                    @Override
                     public void run()
                     {
-                        // On complete call either onSignupSuccess or onSignupFailed
-                        // depending on success
-                        onSignupSuccess();
-                        // onSignupFailed();
                         progressDialog.dismiss();
+
+                        if (isSignupOkay)
+                        {
+                            onSignupSuccess();
+                        }
+                        else
+                        {
+                            onSignupFailed();
+                        }
                     }
-                }, 3000);
+                });
+            }
+        });
+
+        signupThread.start();
     }
 
     public void onSignupSuccess()
     {
         signupButton.setEnabled(true);
         setResult(RESULT_OK, null);
-        finish();
+        Toast toast = Toast.makeText(getBaseContext(), "You have signedup successfully", Toast.LENGTH_LONG);
+        toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+        toast.show();
+
+        ActvityManager actvityManager = ActvityManager.getInstance();
+        actvityManager.nagivateToLoginActivity(this);
     }
 
     public void onSignupFailed()
     {
-        Toast.makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
-
+        makeText(getBaseContext(), "Login failed", Toast.LENGTH_LONG).show();
         signupButton.setEnabled(true);
     }
 
@@ -178,7 +204,7 @@ public class SignupActivity extends AppCompatActivity
             mobileText.setError(null);
         }
 
-        if (password.isEmpty() || password.length() < 4 || password.length() > 10)
+        if (password.isEmpty() || password.length() < 4 || password.length() > 15)
         {
             passwordText.setError("between 4 and 10 alphanumeric characters");
             valid = false;
